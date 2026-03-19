@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Suporte 24h - Loja de Vendas</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="container header-content">
+      <div>
+        <p class="tag">Suporte 24h</p>
+        <h1>Fale conosco agora</h1>
+        <p class="subtitle">Envie sua dúvida e receba uma resposta rápida de nossa equipe de atendimento.</p>
+      </div>
+      <a class="btn btn-primary" href="index.html">← Voltar à loja</a>
+    </div>
+  </header>
+
+  <main class="container support-wrapper">
+    <section class="support-card">
+      <h2>Chat de Suporte</h2>
+      <p class="muted">Estamos disponíveis 24 horas por dia para ajudar você.</p>
+      <div id="chatBox" class="chat-box">
+        <div class="message bot">Olá! Como posso ajudar você hoje?</div>
+      </div>
+      <form id="supportForm" class="support-form">
+        <input id="userMessage" type="text" placeholder="Digite sua pergunta..." required maxlength="140" />
+        <button class="btn btn-primary" type="submit">Enviar</button>
+      </form>
+      <div id="supportHint" class="support-hint">Dica: pergunte sobre pedidos, entregas ou formas de pagamento.</div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Loja de Vendas. Suporte 24h.</p>
+      <p>Pronto para ajudar você.</p>
+    </div>
+  </footer>
+
+  <script src="js/support.js"></script>
+</body>
+</html>

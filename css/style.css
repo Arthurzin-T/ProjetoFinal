@@ -1,0 +1,428 @@
+/* ==========================================================================
+   1. RESET E CONFIGURAÇÕES GERAIS
+   ========================================================================== */
+* { 
+  box-sizing: border-box; 
+  margin: 0; 
+  padding: 0; 
+}
+
+:root { 
+  --bg: #f3f4f6; 
+  --card: #ffffff; 
+  --primary: #2563eb; 
+  --primary-dark: #1d4ed8; 
+  --text: #111827; 
+  --muted: #4b5563; 
+  --border: #e5e7eb; 
+}
+
+body { 
+  font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; 
+  background: var(--bg); 
+  color: var(--text); 
+  line-height: 1.5; 
+}
+
+/* Utilitário de largura centralizada */
+.container { 
+  width: min(1100px, 92%); 
+  margin: 0 auto; 
+}
+
+/* ==========================================================================
+   2. CABEÇALHO (HEADER)
+   ========================================================================== */
+   /* No seu bloco .site-header, adicione ou substitua por isso: */
+/* ==========================================================================
+   2. CABEÇALHO (HEADER) COM IMAGEM DE FUNDO
+   ========================================================================== */
+.site-header { 
+  /* Mistura o gradiente azul com a imagem de fundo */
+  
+  background: linear-gradient(135deg, rgba(29, 78, 216, 0.6), rgba(37, 99, 235, 0.85)), 
+              url('../img/imagem_loja.jpg');
+  background-size: cover;       /* A imagem preenche todo o espaço */
+  background-position: center;  /* Centraliza a imagem */
+  background-attachment: fixed; /* Efeito Parallax (a imagem fica parada ao rolar) */
+  
+  color: #fff; 
+  padding: 5rem 0;              /* Aumentei o espaço para a imagem respirar */
+  min-height: 400px;            /* Garante uma altura mínima elegante */
+  display: flex;
+  align-items: center;
+}
+
+.header-content { 
+  display: flex; 
+  align-items: center; 
+  justify-content: space-between; 
+  gap: 2rem; 
+  flex-wrap: wrap; 
+  width: 100%; /* Garante que ocupe a largura do container */
+}
+
+.header-actions { 
+  display: flex; 
+  align-items: center; 
+  gap: .5rem; 
+  flex-wrap: wrap; 
+}
+
+/* Elementos de texto do Header */
+.tag { 
+  display: inline-block; 
+  background: #e0e7ff; 
+  color: #1e40af; 
+  border-radius: 999px; 
+  font-weight: 700; 
+  font-size: .75rem; 
+  letter-spacing: .04em; 
+  text-transform: uppercase; 
+  padding: .25rem .6rem; 
+  margin-bottom: .6rem; 
+}
+
+h1 { 
+  font-size: clamp(1.6rem, 4vw, 2.6rem); 
+  margin-bottom: .6rem; 
+  max-width: 680px; 
+}
+
+.subtitle { 
+  color: #e2e8f0; 
+  max-width: 560px; 
+  margin-bottom: .8rem; 
+}
+/* ==========================================================================
+   2.1. BARRA DE ACESSIBILIDADE
+   ========================================================================== */
+.accessibility-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 0.5rem;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Estilo específico para os botões de controle de fonte */
+#fontDecrease, #fontIncrease {
+  min-width: 40px;
+  height: 40px;
+  padding: 0;
+  font-size: 1rem;
+  border-color: var(--primary);
+}
+
+/* Estilo para o botão de leitura */
+#readSite {
+  font-size: 0.85rem;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+}
+
+/* Ajuste para quando o site estiver no Header (texto branco) */
+.site-header .accessibility-controls .btn-outline {
+  border-color: rgba(255, 255, 255, 0.5);
+  color: #fff;
+}
+
+.site-header .accessibility-controls .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+/* Responsividade da barra */
+@media (max-width: 760px) {
+  .accessibility-controls {
+    justify-content: center;
+    background: var(--card);
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--border);
+  }
+  
+  .site-header .accessibility-controls .btn-outline {
+    color: var(--primary);
+    border-color: var(--primary);
+  }
+}
+
+/* ==========================================================================
+   2.2. DESTAQUE DOS BOTÕES NO HEADER (GLASSMORPHISM)
+   ========================================================================== */
+
+/* Estilo especial apenas para os botões que estão dentro do site-header */
+.site-header .header-actions .btn-outline {
+  background: rgba(255, 255, 255, 0.15); /* Fundo branco bem clarinho */
+  border: 1px solid rgba(255, 255, 255, 0.4); /* Borda branca suave */
+  color: #ffffff; /* Texto sempre branco */
+  backdrop-filter: blur(8px); /* Efeito de vidro fosco no fundo */
+  -webkit-backdrop-filter: blur(8px); /* Compatibilidade para Safari */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Sombra leve para dar profundidade */
+}
+
+/* Efeito ao passar o mouse (Hover) */
+.site-header .header-actions .btn-outline:hover {
+  background: rgba(255, 255, 255, 0.3); /* Fica um pouco mais claro */
+  transform: translateY(-3px); /* Sobe levemente */
+  border-color: #ffffff;
+  color: #ffffff;
+}
+
+/* Ajuste no contador do carrinho dentro do botão para brilhar mais */
+#headerCartCount {
+  font-weight: 800;
+  color: #fbbf24; /* Um tom de dourado/amarelo para o número se destacar */
+}
+
+/* ==========================================================================
+   3. BOTÕES (SISTEMA DE DESIGN)
+   ========================================================================== */
+.btn { 
+  border: 0; 
+  font-weight: 700; 
+  border-radius: 10px; 
+  padding: .65rem 1rem; 
+  cursor: pointer; 
+  transition: .2s ease; 
+  text-decoration: none; 
+  display: inline-flex; 
+  align-items: center; 
+  justify-content: center; 
+}
+
+.btn-primary { 
+  background: #fff; 
+  color: #1e3a8a; 
+  box-shadow: 0 8px 20px rgba(0,0,0,.15); 
+}
+
+.btn-primary:hover { 
+  transform: translateY(-2px); 
+  background: #f8fafc; 
+}
+
+.btn-outline { 
+  background: transparent; 
+  border: 1.5px solid #2563eb; 
+  color: #2563eb; 
+}
+
+.btn-outline:hover { 
+  background: #1b0b77; 
+  color: #fff; 
+}
+
+/* ==========================================================================
+   4. GRADE DE PRODUTOS E CARDS
+   ========================================================================== */
+.main { padding: 2rem 0; }
+.produtos-section { padding: 2.2rem 0; }
+.section-title { margin-bottom: 1rem; }
+.section-title h2 { font-size: clamp(1.3rem, 3vw, 2rem); margin-top: .35rem; }
+
+.produtos-grid { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); 
+  gap: 1rem; 
+}
+
+.card { 
+  background: var(--card); 
+  border: 1px solid var(--border); 
+  border-radius: 14px; 
+  padding: 1rem; 
+  box-shadow: 0 4px 14px rgba(15, 23, 42, 0.06); 
+  display: flex; 
+  flex-direction: column; 
+  gap: .4rem; 
+}
+
+/* Efeito visual ao adicionar item */
+.card.cart-hit { 
+  border-color: #2563eb; 
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15); 
+}
+
+.card-top { display: flex; justify-content: flex-end; }
+.badge { font-size: .72rem; background: #e0e7ff; color: #1e40af; border-radius: 999px; padding: .2rem .5rem; font-weight: 700; }
+.card h3 { margin-top: .25rem; font-size: 1.05rem; }
+.card p { color: #4b5563; font-size: .92rem; margin: .35rem 0 .6rem; }
+
+.card-bottom { 
+  margin-top: auto; 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: .4rem; 
+}
+
+.price { font-size: 1rem; font-weight: 700; color: #111827; }
+
+/* ==========================================================================
+   4.1. IMAGENS DOS PRODUTOS
+   ========================================================================== */
+.card-image {
+  width: 100%;
+  height: 180px; /* Altura fixa para todos os cards ficarem iguais */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden; /* Corta o que sobrar da imagem */
+  background: #f9fafb;
+  border-radius: 10px;
+  margin: 0.5rem 0;
+}
+
+.card-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Ajusta a foto sem esticar (ou use 'cover' se quiser preencher tudo) */
+  transition: transform 0.3s ease;
+}
+
+/* Efeito de zoom na imagem ao passar o mouse no card */
+.card:hover .card-image img {
+  transform: scale(1.1);
+}
+
+/* ==========================================================================
+   5. SEÇÃO DE INFORMAÇÕES (FEATURES)
+   ========================================================================== */
+.info-section { 
+  background: #fff; 
+  border-top: 1px solid #e5e7eb; 
+  border-bottom: 1px solid #e5e7eb; 
+  padding: 1.4rem 0; 
+  margin-top: 1.2rem; 
+}
+
+.feature-row { 
+  display: grid; 
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); 
+  gap: 1rem; 
+}
+
+.feature { 
+  background: #f9fafb; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 10px; 
+  padding: 1rem; 
+}
+
+.feature h3 { margin-bottom: .3rem; font-size: 1rem; }
+.feature p { color: #4b5563; font-size: .9rem; }
+
+/* ==========================================================================
+   6. MODAL DO CARRINHO
+   ========================================================================== */
+.cart-modal { 
+  position: fixed; 
+  inset: 0; 
+  z-index: 2000; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+}
+
+.cart-modal.hidden { display: none; }
+
+.cart-backdrop { 
+  position: fixed; 
+  inset: 0; 
+  background: rgba(0,0,0,0.45); 
+}
+
+.cart-panel { 
+  position: relative; 
+  z-index: 10; 
+  width: min(540px, 95%); 
+  background: #fff; 
+  border-radius: 14px; 
+  padding: 1rem; 
+  box-shadow: 0 16px 35px rgba(0,0,0,0.2); 
+  border: 1px solid #e5e7eb; 
+}
+
+/* Listagem de itens no carrinho */
+.cart-items { 
+  max-height: 260px; 
+  overflow: auto; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 10px; 
+  padding: .6rem; 
+  margin-bottom: .7rem; 
+  background: #fafbff; 
+}
+
+.cart-row { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+  gap: .4rem; 
+  background: #fff; 
+  border: 1px solid #e5e7eb; 
+  border-radius: 8px; 
+  padding: .5rem .6rem; 
+  margin-bottom: .4rem; 
+}
+
+/* Pagamento e Status */
+.cart-payment { margin-bottom: .7rem; display: flex; flex-direction: column; gap: .25rem; }
+.cart-payment select { width: 100%; border: 1px solid #d1d5db; border-radius: 8px; padding: .45rem .5rem; }
+
+.checkout-status { 
+  margin-top: .6rem; 
+  border: 1px solid #d1d5db; 
+  border-radius: 8px; 
+  padding: .55rem .6rem; 
+  background: #f3f4f6; 
+  color: #111827; 
+  font-weight: 600; 
+}
+
+/* ==========================================================================
+   7. PÁGINA DE SUPORTE E CHAT
+   ========================================================================== */
+.support-wrapper { margin-top: 2.2rem; margin-bottom: 2.2rem; }
+
+.support-card { 
+  background: #fff; 
+  border: 1px solid #dbeafe; 
+  border-radius: 14px; 
+  box-shadow: 0 6px 24px rgba(0,0,0,.06); 
+  padding: 1rem 1rem 1.2rem; 
+  max-width: 780px; 
+  margin: 0 auto; 
+}
+
+.chat-box { 
+  background: #f8fafc; 
+  border: 1px solid #e2e8f0; 
+  border-radius: 10px; 
+  min-height: 260px; 
+  padding: .8rem; 
+  overflow-y: auto; 
+  margin-bottom: .7rem; 
+}
+
+.message { border-radius: 10px; padding: .45rem .7rem; margin-bottom: .35rem; font-size: .95rem; max-width: 90%; }
+.message.user { background: #2563eb; color: #fff; margin-left: auto; }
+.message.bot { background: #e2e8f0; color: #111827; }
+
+.support-form { display: flex; gap: .4rem; margin-bottom: .5rem; }
+.support-form input { flex: 1; border: 1px solid #cbd5e1; border-radius: 10px; padding: .5rem .7rem; }
+
+/* ==========================================================================
+   8. RODAPÉ E RESPONSIVIDADE
+   ========================================================================== */
+.site-footer { background: #111827; color: #e5e7eb; padding: 1rem 0; margin-top: 1.4rem; }
+.footer-content { display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: .4rem; font-size: .9rem; }
+
+/* Media Query para telas pequenas */
+@media (max-width: 760px) {
+  .header-content { text-align: center; justify-content: center; }
+  .btn { width: 100%; max-width: 250px; }
+  .footer-content { justify-content: center; }
+  .support-form { flex-direction: column; }
+  .support-form button { width: 100%; }
+}

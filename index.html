@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Loja de Vendas - Seu Produto</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <div class="accessibility-controls container" style="padding: 10px 0; display: flex; gap: 10px; justify-content: flex-end;">
+    <button id="fontDecrease" class="btn btn-outline" style="padding: 5px 10px;" title="Diminuir fonte">A-</button>
+    <button id="fontIncrease" class="btn btn-outline" style="padding: 5px 10px;" title="Aumentar fonte">A+</button>
+    <button id="readSite" class="btn btn-primary" style="padding: 5px 10px;" title="Ouvir site">🔈 Ouvir Site</button>
+  </div>
+  <header class="site-header">
+    <div class="container"></div>
+    <div class=" header-content">
+      <div>
+        <p class="tag">Ética de dados</p>
+        <h1>Compre serviços que garatem a proteção de seu dados</h1>
+        <p class="subtitle">Serviços oferecidos, consultoria remota, consultoria presencial e .</p>
+      </div>
+
+      <div class="header-actions">
+        <button id="openCart" class="btn btn-outline" type="button">🛒 Carrinho (<span id="headerCartCount">0</span>)</button>
+        <a class="btn btn-outline" href="support.html">💬 Suporte 24h</a>
+        <a class="btn btn-primary" href="#produtos">Ver Produtos</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="produtos" class="container produtos-section">
+      <div class="section-title">
+        <p class="tag">Destaques</p>
+        <h2>Produtos mais vendidos</h2>
+      </div>
+
+      <div class="produtos-grid">
+        
+        <article class="card">
+        <div class="card-top"><span class="badge">-25%</span></div>
+  
+        <div class="card-image">
+        <img src="img/ConsultoriaRemota.jpg" alt="Fone Bluetooth">
+        </div>
+
+  <h3>Consultoria Remota</h3>
+  <p>Faça uma consultoria remotamente, para fazermos uma análise de segurança de seus dados.</p>
+  <div class="card-bottom">
+    <span class="price">R$ 199,00</span>
+    <button class="btn btn-outline btn-add">Comprar</button>
+  </div>
+</article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge">Lançamento</span></div>
+            
+            <div class="card-image">
+             <img src="img/consultoria-lgpd-servico.jpg" alt="Relógio Smart">
+            </div>
+
+          <h3>Consultoria Presencial</h3>
+          <p>Faça uma consultoria presencial para uma melhor análise da seguranças do seus dados.</p>
+          <div class="card-bottom">
+            <span class="price">R$ 349,00</span>
+            <button class="btn btn-outline btn-add">Comprar</button>
+          </div>
+        </article>
+
+        <article class="card">
+          <div class="card-top"><span class="badge">Frete grátis</span></div>
+
+            <div class="card-image">
+            <img src="img/mochila.jpeg" alt="Mochila Casual ">
+            </div>
+
+
+          <h3>Mochila Casual</h3>
+          <p>Resistente à água, compartimento para notebook 15" e estilo urbano.</p>
+          <div class="card-bottom">
+            <span class="price">R$ 129,00</span>
+            <button class="btn btn-outline btn-add" type="button">Comprar</button>
+          </div>
+        </article>
+
+      </div> </section>
+
+    <section class="container info-section">
+      <div class="feature-row">
+        <div class="feature">
+          <h3>Atendimento imediato</h3>
+          <p>Atendemos em até 24 horas para todo o Brasil.</p>
+        </div>
+        <div class="feature">
+          <h3>Pagamento seguro</h3>
+          <p>Compra protegida com criptografia e parcelamento em até 12x.</p>
+        </div>
+        <div class="feature">
+          <h3>Suporte 24h</h3>
+          <p>Atendimento via chat, WhatsApp e e-mail.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div id="cartModal" class="cart-modal hidden">
+    <div class="cart-backdrop" id="cartBackdrop"></div>
+    
+    <div class="cart-panel">
+      <div class="cart-header">
+        <div>
+          <h3>Seu Carrinho</h3>
+          <p id="cartItemCount">0 produtos</p>
+        </div>
+        <button id="closeCart" class="btn btn-outline" type="button">Fechar</button>
+      </div>
+
+      <div id="cartItems" class="cart-items"></div>
+
+      <div class="cart-payment">
+        <label for="paymentSelect">Forma de pagamento</label>
+        <select id="paymentSelect">
+          <option value="boleto">Boleto</option>
+          <option value="pix">PIX</option>
+          <option value="cartao">Cartão de Crédito</option>
+          <option value="transferencia">Transferência</option>
+        </select>
+      </div>
+
+      <div class="cart-footer">
+        <small id="cartTotal">Total: R$ 0,00</small>
+        <div class="cart-actions">
+          <button id="checkoutBtn" class="btn btn-primary" type="button">Finalizar Compra</button>
+          <button id="resetBtn" class="btn btn-outline" type="button">Voltar ao Início</button>
+        </div>
+      </div>
+      
+      <div id="checkoutStatus" class="checkout-status hidden"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="container footer-content">
+      <p>© 2026 Loja de Vendas. Todos os direitos reservados.</p>
+      <p>Desenvolvido por você.</p>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>
